@@ -45,3 +45,5 @@ php artisan migrate
 php artisan infyom:scaffold Project --fromTable --table=projects
 ```
  
+ 
+<!-- adnane's branch -->
