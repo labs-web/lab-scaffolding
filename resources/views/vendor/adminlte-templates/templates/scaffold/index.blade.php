@@ -15,7 +15,7 @@
                     <a class="btn btn-primary float-right"
                        href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.create') }}">
 @if($config->options->localized)
-                         @@lang('crud.add_new')
+                         @@lang('crud.add_new') test
 @else
                         Add New
 @endif
