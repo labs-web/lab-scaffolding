@@ -37,7 +37,7 @@ fixe error at RouteServiceProvider file
 composer require infyomlabs/laravel-ui-adminlte
 php artisan ui adminlte --auth
 npm install
-npm install laravel-mix --save-dev # fixe error
+# npm install laravel-mix --save-dev # fixe error
 npm run dev
 ```
 
