@@ -46,3 +46,7 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 }
+
+// Route::middleware('api')
+//                 ->prefix('api')
+//                 ->as('api.')
