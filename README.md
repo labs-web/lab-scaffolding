@@ -20,7 +20,7 @@ Add following packages into composer.json while using it with Laravel 9.
  "require": {
      "infyomlabs/laravel-generator": "^6.0",
      "infyomlabs/adminlte-templates": "^6.0",
-     "doctrine/dbal": "~2.3"
+     "doctrine/dbal": "^3.6"
  }
  ```
 
