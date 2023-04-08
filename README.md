@@ -15,6 +15,7 @@ composer create-project laravel/laravel lab-scaffolding
 
 Add following packages into composer.json while using it with Laravel 9.
 
+
 ```json
  "require": {
      "infyomlabs/laravel-generator": "^6.0",
@@ -56,3 +57,4 @@ php artisan infyom:scaffold Post --fromTable --table=posts
 ## Références 
 - https://infyom.com/open-source/laravelgenerator/docs/10.0/installation
 - https://github.com/InfyOmLabs/laravel-generator
+- https://laravel.com/docs/10.x/packages
