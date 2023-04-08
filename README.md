@@ -41,6 +41,14 @@ npm install
 npm run dev
 ```
 
+## Custom Templates
+````
+php artisan vendor:publish --tag=laravel-generator-templates
+php artisan vendor:publish --tag=adminlte-templates
+php artisan vendor:publish --tag=adminlte-views
+````
+
+
 ## Création de la base de données 
  - voir lab-database-laravel
 
