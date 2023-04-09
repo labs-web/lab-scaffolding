@@ -58,9 +58,20 @@ php artisan vendor:publish --tag=adminlte-views
 php artisan infyom:scaffold Project --fromTable --table=projects
 php artisan infyom:scaffold Task --fromTable --table=tasks
 php artisan infyom:scaffold Member --fromTable --table=members
-php artisan infyom:scaffold Post --fromTable --table=posts
 ```
  
+## Start app
+
+to start the application run 
+
+````bash
+npm run dev
+````
+in another console 
+
+````bash
+php artisan serve
+````
 
 ## Références 
 - https://infyom.com/open-source/laravelgenerator/docs/10.0/installation
