@@ -140,7 +140,7 @@ return [
 
         'resources' => false,
 
-        'factory' => false,
+        'factory' => true,
 
         'seeder' => false,
 
