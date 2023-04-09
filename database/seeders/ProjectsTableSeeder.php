@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Factories;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Project::factory(10)->create();
 
+         
     }
 }

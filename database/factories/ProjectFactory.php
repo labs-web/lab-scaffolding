@@ -24,8 +24,8 @@ class ProjectFactory extends Factory
     {
         
         return [
-            'name' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'description' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'name' => "projet" . $this->faker->text($this->faker->numberBetween(5, 6)),
+            'description' => "description" . $this->faker->text($this->faker->numberBetween(5, 255)),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

@@ -140,9 +140,9 @@ return [
 
         'resources' => false,
 
-        'factory' => true,
+        'factory' => false,
 
-        'seeder' => true,
+        'seeder' => false,
 
         'swagger' => false, // generate swagger for your APIs
 

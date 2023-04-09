@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
- use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class Project extends Model
 {
-    use HasFactory;    public $table = 'projects';
+    public $table = 'projects';
 
     public $fillable = [
         'name',
