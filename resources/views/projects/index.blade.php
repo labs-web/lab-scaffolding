@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('projects.create') }}">
-                         @lang('crud.add_new')
+                         @lang('crud.add_new') test
                     </a>
                 </div>
             </div>
