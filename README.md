@@ -58,8 +58,34 @@ php artisan vendor:publish --tag=adminlte-views
 php artisan infyom:scaffold Project --fromTable --table=projects
 php artisan infyom:scaffold Task --fromTable --table=tasks
 php artisan infyom:scaffold Member --fromTable --table=members
+
+php artisan infyom:scaffold Project --fieldsFile --views=index,show
+
 ```
- 
+
+## skip
+
+````bash
+php artisan infyom:scaffold Project --skip=migration --fieldsFile .\resources\model_schemas\Project.json --views=index,show 
+````
+
+You can specify any file from the following list:
+
+migration
+model
+controllers
+api_controller
+scaffold_controller
+scaffold_requests
+routes
+api_routes
+scaffold_routes
+views
+tests
+menu
+dump-autoload
+
+
 ## Start app
 
 to start the application run 
