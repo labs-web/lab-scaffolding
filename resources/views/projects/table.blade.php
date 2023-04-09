@@ -36,11 +36,13 @@
             <tbody>
             @foreach($projects as $project)
                 <tr>
+                    
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->description }}</td>
                     <td  style="width: 120px">
                         {!! Form::open(['route' => ['projects.destroy', $project->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
+                            @include('projects.actions') 
                             <a href="{{ route('projects.show', [$project->id]) }}"
                                class='btn btn-default btn-sm'>
                                 <i class="far fa-eye"></i>
