@@ -3,8 +3,6 @@
 {{ $config->modelNames->camelPlural }}
 @@extends('layouts.app') -> @extends('layouts.app')
 
-
-
 ## Variable config
 $config->modelNames->humanPlural
 $config->modelNames->camelPlural
