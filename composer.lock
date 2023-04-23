@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4849b5405b30a8e16ac71c834d3964f",
+    "content-hash": "2b96d0a78894f478d7f49f86b7d643f1",
     "packages": [
         {
             "name": "brick/math",
@@ -774,6 +774,85 @@
             "time": "2023-01-14T14:17:03+00:00"
         },
         {
+            "name": "essarraj/laravel-generator",
+            "version": "dev-local-package",
+            "dist": {
+                "type": "path",
+                "url": "./laravel-generator",
+                "reference": "08938aeb013c808f82118b78f422700aa0e517a8"
+            },
+            "require": {
+                "illuminate/console": "^10.0",
+                "illuminate/support": "^10.0",
+                "laracasts/flash": "^3.2.2",
+                "laravelcollective/html": "^6.4",
+                "php": "^8.1.0",
+                "symfony/var-exporter": "^6.2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5.1",
+                "orchestra/testbench": "^8.0.0",
+                "pestphp/pest": "2.x-dev",
+                "pestphp/pest-plugin-laravel": "2.x-dev",
+                "phpunit/phpunit": "^10.0.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\InfyOm\\Generator\\InfyOmGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "InfyOm\\Generator\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mitul Golakiya",
+                    "email": "me@mitul.me"
+                }
+            ],
+            "description": "InfyOm Laravel Generator",
+            "keywords": [
+                "api",
+                "crud",
+                "generator",
+                "laravel",
+                "migration",
+                "model",
+                "model",
+                "repository",
+                "request",
+                "swagger",
+                "test",
+                "view"
+            ],
+            "funding": [
+                {
+                    "type": "opencollective",
+                    "url": "https://opencollective.com/infyomlabs"
+                }
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "fruitcake/php-cors",
             "version": "v1.2.0",
             "source": {
@@ -1384,87 +1463,6 @@
                 }
             ],
             "time": "2023-04-04T10:56:17+00:00"
-        },
-        {
-            "name": "infyomlabs/laravel-generator",
-            "version": "v6.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/InfyOmLabs/laravel-generator.git",
-                "reference": "622e54636678dadd287a9161668ac33edb6ebe20"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/622e54636678dadd287a9161668ac33edb6ebe20",
-                "reference": "622e54636678dadd287a9161668ac33edb6ebe20",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^10.0",
-                "illuminate/support": "^10.0",
-                "laracasts/flash": "^3.2.2",
-                "laravelcollective/html": "^6.4",
-                "php": "^8.1.0",
-                "symfony/var-exporter": "^6.2.5"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5.1",
-                "orchestra/testbench": "^8.0.0",
-                "pestphp/pest": "2.x-dev",
-                "pestphp/pest-plugin-laravel": "2.x-dev",
-                "phpunit/phpunit": "^10.0.7"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "\\InfyOm\\Generator\\InfyOmGeneratorServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "InfyOm\\Generator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mitul Golakiya",
-                    "email": "me@mitul.me"
-                }
-            ],
-            "description": "InfyOm Laravel Generator",
-            "keywords": [
-                "api",
-                "crud",
-                "generator",
-                "laravel",
-                "migration",
-                "model",
-                "repository",
-                "request",
-                "swagger",
-                "test",
-                "view"
-            ],
-            "support": {
-                "issues": "https://github.com/InfyOmLabs/laravel-generator/issues",
-                "source": "https://github.com/InfyOmLabs/laravel-generator/tree/v6.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://opencollective.com/infyomlabs",
-                    "type": "opencollective"
-                }
-            ],
-            "time": "2023-04-04T11:02:01+00:00"
         },
         {
             "name": "infyomlabs/laravel-generator-helpers",
@@ -8723,7 +8721,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,

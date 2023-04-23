@@ -7,9 +7,9 @@
     "require": {
         "php": "^8.1",
         "doctrine/dbal": "^3.6",
+        "essarraj/laravel-generator": "dev-local-package",
         "guzzlehttp/guzzle": "^7.2",
         "infyomlabs/adminlte-templates": "^6.0",
-        "infyomlabs/laravel-generator": "^6.0",
         "infyomlabs/laravel-ui-adminlte": "^5.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
@@ -51,6 +51,20 @@
             "@php artisan key:generate --ansi"
         ]
     },
+
+
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./laravel-generator",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+
+
     "extra": {
         "laravel": {
             "dont-discover": []
@@ -65,6 +79,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

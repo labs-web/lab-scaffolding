@@ -1,5 +1,24 @@
 # Lab - Scaffolding
 
+
+Installation de laravel-generator comme package local
+
+## Importing the Package Locally
+
+- https://laravelpackage.com/02-development-environment.html#psr-4-autoloading
+
+
+## Commands 
+
+change in composer 
+
+ "minimum-stability": "dev",
+
+
+````
+composer require essarraj/laravel-generator 
+````
+
 ## Travail à faire 
 
 - Installation de infyom
