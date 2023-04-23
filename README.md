@@ -1,6 +1,5 @@
 # Lab - Scaffolding
 
-
 Installation de laravel-generator comme package local
 
 ## Importing the Package Locally
@@ -16,7 +15,24 @@ change in composer
 
 
 ````
+composer remove infyomlabs/laravel-generator 
 composer require essarraj/laravel-generator 
+````
+
+add to composer 
+after script
+
+````conf
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./laravel-generator",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
 ````
 
 ## Travail à faire 
