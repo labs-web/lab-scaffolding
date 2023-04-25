@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+    
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -10,7 +12,7 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('tasks.create') }}">
-                         @lang('crud.add_new') test
+                         @lang('crud.add_new') Task
                     </a>
                 </div>
             </div>
