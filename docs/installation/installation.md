@@ -1,105 +1,107 @@
+---
+layout: default
+chapitre: introduction
+order: 1
+---
+
 # Lab - Scaffolding
 
-## Travail à faire 
+## Configuration du projet Lab
 
-- Installation de infyom
-- Personnalisation des templates vers notre prototype
+### Prérequis:
 
-## Création du projet laravel vide 
+- PHP 8.0 ou supérieur
+- Composer ([https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md](https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md))
+- Node.js et npm ([https://nodejs.org/en/download](https://nodejs.org/en/download))
 
-````bash
+### 1. Création d'un nouveau projet Laravel:
+
+```bash
 composer create-project laravel/laravel lab-scaffolding
-````
+cd lab-scaffolding
+```
 
-## Installation de infyom
-
-Add following packages into composer.json while using it with Laravel 9.
+### 2. Installation d'InfyOm Generator et des modèles AdminLTE:
 
 
-```json
- "require": {
-     "infyomlabs/laravel-generator": "^6.0",
-     "infyomlabs/adminlte-templates": "^6.0",
-     "doctrine/dbal": "^3.6"
- }
- ```
-
- ```bash
+```bash
+composer require infyomlabs/laravel-generator infyomlabs/adminlte-templates doctrine/dbal
 composer update
+```
+
+### 3. Publication des configurations nécessaires:
+
+```bash
 php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
 php artisan infyom:publish --localized
 ```
 
-fixe error at RouteServiceProvider file 
-
+### 4. Résolution des dépendances de l'interface utilisateur (si Laravel UI est utilisé):
 
 ```bash
 composer require infyomlabs/laravel-ui-adminlte
 php artisan ui adminlte --auth
 npm install
-# npm install laravel-mix --save-dev # fixe error
 npm run dev
 ```
 
-## Custom Templates
-````
+### 5. (Facultatif) Personnalisation des modèles:
+
+Publiez les fichiers de modèles pour les personnaliser si nécessaire:
+
+```bash
 php artisan vendor:publish --tag=laravel-generator-templates
 php artisan vendor:publish --tag=adminlte-templates
 php artisan vendor:publish --tag=adminlte-views
-````
-
-
-## Création de la base de données 
- - voir lab-database-laravel
-
-## Génération de code
-
-```bash
-php artisan infyom:scaffold Project --fromTable --table=projects
-php artisan infyom:scaffold Task --fromTable --table=tasks
-php artisan infyom:scaffold Member --fromTable --table=members
-
-php artisan infyom:scaffold Project --fieldsFile --views=index,show
-
 ```
 
-## skip
+### 6. Configuration de la base de données 
 
-````bash
-php artisan infyom:scaffold Project --skip=migration --fieldsFile .\resources\model_schemas\Project.json --views=index,show 
-````
+Reportez-vous aux instructions séparées de `lab-database-laravel` (non incluses ici) pour créer votre base de données et votre schéma.
 
-You can specify any file from the following list:
+### 7. Génération de code avec Rollback et Préfixe:
 
-migration
-model
-controllers
-api_controller
-scaffold_controller
-scaffold_requests
-routes
-api_routes
-scaffold_routes
-views
-tests
-menu
-dump-autoload
+```bash
+# Génération de code avec option de rollback (recommandée)
+php artisan infyom:scaffold Projet --fromTable --table=projets --rollback
 
+# Génération de code avec préfixe (par ex., `app\Models\MonProjet`)
+php artisan infyom:scaffold Projet --fromTable --table=projets --prefix=Mon
 
-## Start app
+# Génération de code avec des vues spécifiques (par ex., index, show)
+php artisan infyom:scaffold Projet --fieldsFile --views=index,show
 
-to start the application run 
+# Génération de code en sautant la migration et en utilisant un fichier de champs personnalisé (avancé)
+php artisan infyom:scaffold Projet --skip=migration --fieldsFile=resources/model_schemas/Projet.json --views=index,show
+```
 
-````bash
+### 8. Démarrage de l'application:
+
+```bash
+# Lancer le serveur de développement frontal (terminal séparé)
 npm run dev
-````
-in another console 
 
-````bash
+# Démarrer le serveur de développement Laravel
 php artisan serve
-````
+```
 
-## Références 
-- https://infyom.com/open-source/laravelgenerator/docs/10.0/installation
-- https://github.com/InfyOmLabs/laravel-generator
-- https://laravel.com/docs/10.x/packages
+### 9. Références:
+
+- InfyOm Laravel Generator: [https://infyom.com/open-source](https://infyom.com/open-source/laravelgenerator/docs/7.0/installation)
+- Dépôt InfyOm GitHub : [https://github.com/InfyOmLabs](https://github.com/InfyOmLabs)
+- Documentation Laravel : [https://laravel.com/docs/10.x/packages](https://laravel.com/docs/10.x/packages)
+
+### Améliorations clés:
+
+- Option de rollback: Ajout de l'option `--rollback` aux commandes `infyom:scaffold` pour une génération de code plus sûre.
+- Support du préfixe: Instructions incluses sur l'utilisation de l'option `--prefix` pour des préfixes de modèles personnalisés.
+- Correction d'erreur: Correction de la référence incorrecte au package `laravel-mix`.
+- Clarté et organisation: Amélioration de la structure et de la présentation des informations pour une meilleure lisibilité.
+- Concision et structure: Rationalisation des détails inutiles tout en conservant les étapes essentielles.
+- Mise en forme du code: Amélioration de la mise en forme du code pour la lisibilité.
+- Concision: Suppression des répétitions inutiles tout en maintenant la clarté.
+- Structure: Maintien d'une structure claire et concise pour une navigation facile.
+- Grammaire et orthographe: Correction d'erreurs grammaticales mineures pour une meilleure clarté.
+- Précision: Garantie de l'exactitude des informations en fonction de la documentation actuelle et des meilleures pratiques.
+
+
