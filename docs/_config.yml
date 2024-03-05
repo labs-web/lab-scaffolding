@@ -1,5 +1,5 @@
 # Build settings
-# baseurl: "/besoin"
+baseurl: "/lab-scaffolding"
 
 # lsi: false
 # safe: true

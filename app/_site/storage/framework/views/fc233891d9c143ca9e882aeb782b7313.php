@@ -1,0 +1,1 @@
+<th><?php echo $fieldTitle; ?></th><?php /**PATH C:\labs-web\lab-scaffolding\app\resources\views/vendor/adminlte-templates/templates/scaffold/table/blade/header.blade.php ENDPATH**/ ?>

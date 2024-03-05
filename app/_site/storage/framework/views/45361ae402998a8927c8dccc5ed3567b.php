@@ -1,0 +1,1 @@
+@include('adminlte-templates::common.paginate', ['records' => $<?php echo $config->modelNames->camelPlural; ?>])<?php /**PATH C:\labs-web\lab-scaffolding\app\resources\views/vendor/adminlte-templates/templates/scaffold/paginate.blade.php ENDPATH**/ ?>
