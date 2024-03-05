@@ -1,10 +1,10 @@
 ---
 layout: default
-chapitre: introduction
-order: 1
+chapitre: installation 
+order: 2
 ---
 
-# Lab - Scaffolding
+# Lab Scaffolding
 
 ## Configuration du projet Lab
 
