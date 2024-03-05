@@ -35,6 +35,8 @@ composer update
 php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
 php artisan infyom:publish --localized
 ```
+Correction de l'erreur dans le fichier RouteServiceProvider
+
 
 ### 4. Résolution des dépendances de l'interface utilisateur (si Laravel UI est utilisé):
 
