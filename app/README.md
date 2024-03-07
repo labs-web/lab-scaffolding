@@ -1,105 +1,78 @@
-# Lab - Scaffolding
+## Prototype de projet Laravel avec InfyOm Laravel Generator
 
-## Travail à faire 
+Ce guide vous explique pas à pas la configuration de votre projet Laravel en utilisant InfyOm Laravel Generator pour la génération de code, les modèles d'interface utilisateur AdminLTE pour une interface responsive et Doctrine DBAL pour les interactions avec la base de données.
 
-- Installation de infyom
-- Personnalisation des templates vers notre prototype
+**Prérequis:**
 
-## Création du projet laravel vide 
+* PHP 8.0 ou supérieur ([https://www.php.net/downloads.php](https://www.php.net/downloads.php))
+* Composer ([https://laravel.com/docs/4.2/releases](https://laravel.com/docs/4.2/releases))
+* Node.js et npm ([https://nodejs.org/en/download](https://nodejs.org/en/download))
 
-````bash
-composer create-project laravel/laravel lab-scaffolding
-````
+**Installation:**
 
-## Installation de infyom
+1. **Créer un nouveau projet Laravel:**
+   ```bash
+   composer create-project laravel/laravel mon-projet
+   ```
 
-Add following packages into composer.json while using it with Laravel 9.
-
-
-```json
- "require": {
-     "infyomlabs/laravel-generator": "^6.0",
-     "infyomlabs/adminlte-templates": "^6.0",
-     "doctrine/dbal": "^3.6"
- }
- ```
-
- ```bash
-composer update
-php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
-php artisan infyom:publish --localized
-```
-
-fixe error at RouteServiceProvider file 
+2. **Installer les dépendances:**
+   ```bash
+   cd mon-projet
+   composer require infyomlabs/laravel-generator infyomlabs/adminlte-templates doctrine/dbal:^3.6 infyomlabs/laravel-ui-adminlte
+   ```
 
 
-```bash
-composer require infyomlabs/laravel-ui-adminlte
-php artisan ui adminlte --auth
-npm install
-# npm install laravel-mix --save-dev # fixe error
-npm run dev
-```
+3. **Publier les configurations:**
+   - **Pour InfyOm Generator:**
+     ```bash
+     php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
+     ```
+   - **Pour les messages localisés:**
+     ```bash
+     php artisan infyom:publish --localized
+     ```
 
-## Custom Templates
-````
-php artisan vendor:publish --tag=laravel-generator-templates
-php artisan vendor:publish --tag=adminlte-templates
-php artisan vendor:publish --tag=adminlte-views
-````
+4. **Installer et compiler les ressources de l'interface utilisateur AdminLTE:**
+   ```bash
+   composer require infyomlabs/laravel-ui-adminlte
+   php artisan ui adminlte --auth
+   npm install
+   npm run dev
+   ```
 
+5. **Créer des migrations:**
+   ```bash
+   php artisan make:migration create_projets_table
+   php artisan make:migration create_taches_table
+   ```
 
-## Création de la base de données 
- - voir lab-database-laravel
+   - Remplacez `projets` et `taches` par les noms réels de vos tables.
 
-## Génération de code
+6. **Générer des modèles et des contrôleurs:**
+   ```bash
+   php artisan infyom:scaffold Projet --fromTable --table=projects --prefix=GestionProjets
+   php artisan infyom:scaffold Tache --fromTable --table=taches --prefix=GestionProjets
+   ```
 
-```bash
-php artisan infyom:scaffold Project --fromTable --table=projects
-php artisan infyom:scaffold Task --fromTable --table=tasks
-php artisan infyom:scaffold Member --fromTable --table=members
+   - `Projet` et `Tache` doivent être remplacés par les versions singulières CamelCase de vos noms de table.
+   - L'indicateur `--fromTable` indique l'utilisation de vos tables de base de données existantes.
+   - Le `--prefix=GestionProjets` ajoute le préfixe "GestionProjets" aux noms de contrôleurs et aux routes.
 
-php artisan infyom:scaffold Project --fieldsFile --views=index,show
-
-```
-
-## skip
-
-````bash
-php artisan infyom:scaffold Project --skip=migration --fieldsFile .\resources\model_schemas\Project.json --views=index,show 
-````
-
-You can specify any file from the following list:
-
-migration
-model
-controllers
-api_controller
-scaffold_controller
-scaffold_requests
-routes
-api_routes
-scaffold_routes
-views
-tests
-menu
-dump-autoload
+ 7. **Rollbacks the Projet scaffold using the infyom command.**
 
 
-## Start app
+`php artisan infyom:rollback Projet scaffold --fromTable --table=projets`
 
-to start the application run 
 
-````bash
-npm run dev
-````
-in another console 
 
-````bash
-php artisan serve
-````
+**Remarques supplémentaires:**
 
-## Références 
-- https://infyom.com/open-source/laravelgenerator/docs/10.0/installation
-- https://github.com/InfyOmLabs/laravel-generator
-- https://laravel.com/docs/10.x/packages
+- N'oubliez pas de migrer votre base de données après avoir créé les migrations:
+   ```bash
+   php artisan migrate
+   ```
+- Personnalisez le code généré et l'interface utilisateur en fonction des besoins spécifiques de votre projet.
+
+- Reportez-vous à la documentation officielle d'InfyOm Laravel Generator et d'AdminLTE pour des options de configuration et d'utilisation détaillées :
+    - InfyOm Laravel Generator: [https://infyom.com/](https://infyom.com/)
+
