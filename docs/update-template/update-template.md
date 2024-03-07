@@ -55,8 +55,8 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
 
 6. ## Génération des Modèles et des Contrôleurs:
    ```bash
-   php artisan infyom:scaffold Projet --fromTable --table=projects --prefix=GestionProjets
-   php artisan infyom:scaffold Tache --fromTable --table=taches --prefix=GestionProjets
+   php artisan infyom:scaffold Projet --fromTable --table=projects 
+   php artisan infyom:scaffold Tache --fromTable --table=taches 
    ```
 
    - Remplacez `Projet` et `Tache` par les versions en CamelCase singulières de vos noms de table.
