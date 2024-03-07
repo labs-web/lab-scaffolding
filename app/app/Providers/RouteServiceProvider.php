@@ -7,7 +7,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -29,46 +28,13 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
-        $this->loadRoutes();
-    }
+        $this->routes(function () {
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/api.php'));
 
-    /**
-     * Load routes dynamically from the routes directory.
-     */
-    protected function loadRoutes()
-    {
-        $routeFiles = File::allFiles(base_path('routes'));
-
-        foreach ($routeFiles as $file) {
-            $this->loadRouteFile($file);
-        }
-    }
-
-    /**
-     * Load a route file.
-     *
-     * @param \SplFileInfo $file
-     */
-    protected function loadRouteFile($file)
-    {
-        $filePath = $file->getPathname();
-        $routePath = 'routes' . DIRECTORY_SEPARATOR . $file->getRelativePathname();
-        $middleware = $this->getMiddleware($filePath);
-
-        Route::middleware($middleware)->group(function () use ($filePath) {
-            require $filePath;
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
         });
-    }
-
-    /**
-     * Get middleware based on the route file.
-     *
-     * @param string $filePath
-     * @return array
-     */
-    protected function getMiddleware($filePath)
-    {
-        // Add your logic to determine middleware based on the file if needed.
-        return ['web'];
     }
 }
