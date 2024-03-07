@@ -16,18 +16,18 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
 
 ## Installation:
 
-1. ## Création d'un Nouveau Projet Laravel:
+### 1. Création d'un Nouveau Projet Laravel:
    ```bash
    composer create-project laravel/laravel mon-projet
    ```
 
-2. ## Installation des Dépendances:
+### 2. Installation des Dépendances:
    ```bash
    cd mon-projet
    composer require infyomlabs/laravel-generator infyomlabs/adminlte-templates doctrine/dbal:^3.6 infyomlabs/laravel-ui-adminlte
    ```
 
-3. ## Publication des Configurations:
+### 3. Publication des Configurations:
    - ## Pour InfyOm Generator:
      ```bash
      php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
@@ -37,7 +37,7 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
      php artisan infyom:publish --localized
      ```
 
-4. ## Installation et Compilation des Ressources de l'Interface Utilisateur AdminLTE:
+### 4. Installation et Compilation des Ressources de l'Interface Utilisateur AdminLTE:
    ```bash
    composer require infyomlabs/laravel-ui-adminlte
    php artisan ui adminlte --auth
@@ -45,7 +45,7 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
    npm run dev
    ```
 
-5. ## Création des Migrations:
+### 5. Création des Migrations:
    ```bash
    php artisan make:migration create_projets_table
    php artisan make:migration create_taches_table
@@ -53,7 +53,7 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
 
    - Remplacez `projets` et `taches` par les noms réels de vos tables.
 
-6. ## Génération des Modèles et des Contrôleurs:
+### 6. Génération des Modèles et des Contrôleurs:
    ```bash
    php artisan infyom:scaffold Projet --fromTable --table=projects 
    php artisan infyom:scaffold Tache --fromTable --table=taches 
@@ -63,12 +63,12 @@ Ce guide détaille étape par étape la configuration de votre projet Laravel en
    - L'indicateur `--fromTable` indique l'utilisation de vos tables de base de données existantes.
    - Le `--prefix=GestionProjets` ajoute le préfixe "GestionProjets" aux noms de contrôleurs et aux routes.
 
-7. ## Annulation du Scaffold Projet à l'aide de la commande infyom.
+### 7. Annulation du Scaffold Projet à l'aide de la commande infyom.
 
    ```bash
    php artisan infyom:rollback Projet scaffold --fromTable --table=projets
    ```
-8. ## Modifier les templates de génération de code
+### 8. Modifier les templates de génération de code
    - Pour modifier les templates de génération de code, vous pouvez publier les fichiers de modèles pour les personnaliser si nécessaire:
    ```bash
    php artisan vendor:publish --tag=laravel-generator-templates
